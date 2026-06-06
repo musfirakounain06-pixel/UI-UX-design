@@ -1,7 +1,65 @@
 <!DOCTYPE html>
 <html>
     <head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
         <title>My Portfolio</title>
+        <style>
+            :root{
+    --bg-color: #D8C8A9;      /* Beige background */
+    --primary-color: #6B442C; /* Dark brown */
+    --secondary-color: #8B5A36;
+    --text-color: #4A2F1D;
+    --white: #ffffff;
+}
+*{
+   
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+@media screen (max-width:300px){
+    body{
+        background-color:var(--secondary-color);
+        }
+}
+
+nav{
+    background-color: #6B442C; /* Dark Brown */
+    padding: 15px 0;
+    text-align: center;
+    text-color: var(--white);
+}
+nav  a{
+     color: white;          /* Text color */
+    text-decoration: none; /* Removes underline */
+    font-size: 18px;
+    font-weight: 600;
+}
+.line{
+    border: none;
+    height: 2px;
+    background-color: black;
+    width: 100%;
+}
+.circle{
+    width: 150px;
+    height: 150px;
+    --text-color: #4A2F1D;
+    background: var(--primary-color);
+    border-radius: 50%;
+    margin: 30px auto;
+    transaction:height 0.3s ease, width 0.3s ease;
+}
+.circle:hover{
+    height: 70px;
+    width: 70px;
+}
+
+        </style>
     </head>
     <body>
         <h1 align="center">My Portfolio</h1>
@@ -12,27 +70,39 @@
             <a href ="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </nav>
-        <hr>
+        <hr class="line">
         <h1 id="Home">
-            <a href="#Home">Home</a>
+            <a href="#Home"></a>
             <center>
                 <h1>Hi</h1>
-                <h1>Myself Musfira Kounain.M</h1>
+                <h1>I'm Musfira Kounain.M</h1>
                 <P>I'm a UI UX DESIGNER</P>
                 <p>Welcome to My Portfolio</p>
+                <div class="circle"></div> 
             </center>
         </h1>
-            <hr>
+            <hr class="line">
             <center>
                  <h1 id="About">
-                    <a href="#About">About </a>
+                    <a href="#About"> </a>
                     <h1>About Me</h1>
                     <p>I am a student learning HTML,CSS and Javascript to build website,small application and add design to layout</p>
+                    <h3>I can work as</h3>
+    
+      <h5>Web Designer</h5>
+      <h5>Graphic Designer</h5>
+      <h5>UI/UX Designer</h5>
+
+    <h3>Tools I Use</h3>
+   <h5>Canva</h5>
+     <h5>Figma</h5>
+     <h5>MS Office</h5>
+    
                 
             </center>
-            <hr>
+            <hr class="line">
                 <h1 id="projects">
-                    <a href="#projects">Projects</a>
+                    <a href="#projects"></a>
                     <h1 align="center">Projects</h1>
             <table border="2" align="center" cellpadding="10" cellspacing="5">
                 <tr>
@@ -62,10 +132,9 @@
                 </tr>
             </table>
         </h1>
-        <hr>
-        <h1 id="skills">
-            <a href="#skills">Skills</a>
-            <h1 align="center">Skills</h1>
+        <hr class="line">
+        <h1 id="skills" align="center">Skills</h1>  
+            <a href="#skills"></a>
             <center>
                 <h4> 1.HTML</h4>
                 <h4>2.CSS</h4>
@@ -73,14 +142,81 @@
                 <p>i have additionally learned many courses </p>
                 <img src="Screenshot 2026-06-01 111236.png" alt="skills" width="300">
             </center>
-        </h1>
-        <hr>
+        
+        <hr class="line">
         <center>
-        <h1 id="contact">
-            <a href="#contact">Contact</a>
-            <h3>For further inquiry contact me</h3>
-            <h2>Conatct:987 678 674</h2>
-            <h3>E-mail:xyz@gmail.com</h3>
+        <h1 id="contact" align="center">contact</h1>
+            <a href="#contact"></a>
+            <section id="contact">
+
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Enter Your Name">
+        <br><br>
+
+        <input type="text" id="email" placeholder="Enter Your Email">
+        <br><br>
+
+        <input type="text" id="phone" placeholder="Enter Your Phone Number">
+        <br><br>
+
+        <textarea id="message" placeholder="Enter Your Message"></textarea>
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="error"></p>
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let message = document.getElementById("message").value.trim();
+
+    let error = document.getElementById("error");
+
+    error.style.color = "red";
+
+    if(name === ""){
+        error.innerHTML = "Name is required";
+        return;
+    }
+
+    if(email === ""){
+        error.innerHTML = "Email is required";
+        return;
+    }
+
+    if(!email.includes("@")){
+        error.innerHTML = "Enter a valid email";
+        return;
+    }
+
+    if(phone === ""){
+        error.innerHTML = "Phone number is required";
+        return;
+    }
+
+    if(phone.length !== 10 || isNaN(phone)){
+        error.innerHTML = "Enter a valid 10-digit phone number";
+        return;
+    }
+
+    if(message === ""){
+        error.innerHTML = "Message is required";
+        return;
+    }
+
+    error.style.color = "green";
+    error.innerHTML = "Form submitted successfully!";
+});
+</script>
+</section>
+
+
             
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3892.5359449642747!2d78.62306527273081!3d12.678403298568613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bada9bce4366dbd%3A0x18747a9120f6b89a!2sIslamiah%20Women&#39;s%20Arts%20and%20Science%20College%2C%20Vaniyambadi!5e0!3m2!1sen!2sin!4v1780295087921!5m2!1sen!2sin" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
